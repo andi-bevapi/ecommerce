@@ -1,6 +1,6 @@
 const App = () => {
   return (
-    <h4>E commerce app</h4>
+    <h4>E commerce app test</h4>
   );
 }
 
