@@ -4,9 +4,6 @@ import { Row , Col } from 'react-bootstrap';
 import products from "../../products";
 
 const HomeScreen = () => {
-    
-    console.log("props---",products);
-
   return (
     <>
         <h1>Latest products</h1>
