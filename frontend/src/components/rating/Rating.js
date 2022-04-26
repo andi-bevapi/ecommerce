@@ -1,9 +1,6 @@
 import React from 'react'
 
 const Rating = (props) => {
-
-  console.log("props--value-",props.value);
-
   return (
     <div className='my-3'>
       <span>
