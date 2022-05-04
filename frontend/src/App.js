@@ -14,7 +14,7 @@ const App = () => {
             <h4>E commerce app</h4>
             <Routes>
                 <Route path="/" element={<HomeScreen />} />
-                <Route path="/product/:id" element={<ProductScrean/>} />
+                <Route path="/products/:id" element={<ProductScrean/>} />
             </Routes>
         </Container>
       </main>
