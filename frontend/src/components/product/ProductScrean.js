@@ -13,23 +13,27 @@ import {
 } from "react-bootstrap";
 import Rating from "../rating/Rating";
 import { useParams } from "react-router-dom";
+import products from "../../products";
 
 const ProductScrean = () => {
   const { id } = useParams();
   const [product,setProduct] = useState([]);
 
   useEffect(()=>{
-    getProduct(id);
-    // console.log("getProduct-id----",id);
-  },[id]);
+    productById(id);
+  },[])
 
-
-  const getProduct = async (id) => {
-    const result = await axios.get(`http://localhost:9595/api/products/${id}`);
-    console.log("getProduct-----",result.data[0]);
-    setProduct(result.data[0]);
+  const productById = async (id) => {
+    try{
+        const result = await axios.get(`http://localhost:9595/api/products/${id}`);
+       setProduct(result.data[0]);
+    }catch(error){
+      console.log("error in productById",error);
+    }
   }
 
+  console.log("product-----",product);
+  
   return (
     <>
       <Link className="btn btn-light my-3" to="">
