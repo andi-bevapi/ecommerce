@@ -1,8 +1,14 @@
-const port = 9595;
+// require("dotenv").config();
+const colors = require("colors");
 const express = require("express");
 const app = express();
 const products = require("./data/products");
 const cors = require("cors");
+// const port = process.env.PORT;
+const port = 9595;
+const connectDB = require("./db");
+
+connectDB();
 
 const corsOptions = {
    cors:{
@@ -31,4 +37,4 @@ app.get("/api/products/:id",(req,res)=>{
 
 });
 
-app.listen(`${port}`,(console.log("app is runing")));
+app.listen(`${port}`,(console.log("app is runing on".underline.red )));
