@@ -53,23 +53,8 @@ const productSchema = mongodb.Schema({
   name: {
     type: String,
     required: true,
-  },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  password: {
-    type: String,
-    required: true,
-  },
-  isAdmin: {
-    type: Boolean,
-    required: true,
-    default: false,
-  },
-  timestamps: true,
+  }
 });
 
-const Product = mongodb.model("User", productSchema);
+const Product = mongodb.model("Product", productSchema);
 module.exports = Product;

@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
-const URI = "mongodb+srv://andi:andi@cluster0.upb5e.gcp.mongodb.net/?retryWrites=true&w=majority";
+const URI = "mongodb+srv://andi:andi@cluster0.upb5e.gcp.mongodb.net/proshop?retryWrites=true&w=majority";
+
 
 const connectDB = async() =>{
     try{
@@ -10,4 +11,4 @@ const connectDB = async() =>{
     }
 }
 
-module.exports = connectDB;
+module.exports = {connectDB};

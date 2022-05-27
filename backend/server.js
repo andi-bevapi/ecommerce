@@ -6,9 +6,12 @@ const products = require("./data/products");
 const cors = require("cors");
 // const port = process.env.PORT;
 const port = 9595;
-const connectDB = require("./db");
+const db = require("./db");
+const product = require("./routes/productRoutes");
 
-connectDB();
+app.use(express.json());
+app.use(express.urlencoded({extended: true }));
+db.connectDB();
 
 const corsOptions = {
    cors:{
@@ -17,24 +20,20 @@ const corsOptions = {
    }
 }
 
-app.use(cors(corsOptions))
+
+app.use(cors(corsOptions));
 
 app.get("/",(req,res)=>{
-    res.send("api is running--------");
+    res.send("app is running")
 });
 
 
-app.get("/api/products",(req,res)=>{
-    res.send(products);
-});
 
-app.get("/api/products/:id",(req,res)=>{
-    const {id} = req.params;
-    const productbyId = products.filter((el)=>{
-        return el._id == id
-    })
-    res.send(productbyId);
+app.use("/products",product);
 
-});
+app.use((error,req,res,next)=>{
+    console.log("in error");
+    res.status(404).send("not Found");
+})
 
 app.listen(`${port}`,(console.log("app is runing on".underline.red )));

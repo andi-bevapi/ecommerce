@@ -1,9 +1,8 @@
-const { default: mongoose } = require("mongoose");
-const mongodb = require("mongoose");
+const mongoose  = require("mongoose");
 
-const orderSchema = mongodb.Schema({
+const orderSchema = mongoose.Schema({
   user: {
-    type: mongodb.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     required: true,
     ref: "User",
   },
@@ -62,11 +61,9 @@ const orderSchema = mongodb.Schema({
 },
 deliveredAt: {
     type: Date,
-  },
-
-  timestamps: true,
+  }
 });
 
-const Order = mongodb.model("Order", orderSchema);
+const Order = mongoose.model("Order", orderSchema);
 
 module.exports = Order;

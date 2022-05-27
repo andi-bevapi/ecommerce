@@ -19,8 +19,7 @@ const userSchema = mongodb.Schema({
         type : Boolean,
         required: true,
         default:false
-    },
-    timestamps : true
+    }
 });
 
 const User = mongodb.model("User",userSchema);
